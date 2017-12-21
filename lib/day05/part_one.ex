@@ -15,7 +15,7 @@ defmodule Day05.PartOne do
     {jump_amount, new_steps} = Map.get_and_update!(
       steps,
       position,
-      fn x -> {x, x + 1} end
+      fn x -> {x, update_instruction(x)} end
     )
     {new_steps, position + jump_amount, jumps + 1}
   end
@@ -38,5 +38,7 @@ defmodule Day05.PartOne do
     |> Stream.map(fn {x,y} -> {y,x} end)
     |> Enum.into(%{})
   end
+
+  defp update_instruction(x), do: x + 1
 
 end
