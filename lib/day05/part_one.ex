@@ -32,12 +32,7 @@ defmodule Day05.PartOne do
 
   def jump_around(steps), do: jump_around({indexed_list(steps), 0, 0})
 
-  def indexed_list(list) do
-    list
-    |> Stream.with_index
-    |> Stream.map(fn {x,y} -> {y,x} end)
-    |> Enum.into(%{})
-  end
+  def indexed_list(list), do: Adventofcode2017.indexed_list(list)
 
   defp update_instruction(x), do: x + 1
 

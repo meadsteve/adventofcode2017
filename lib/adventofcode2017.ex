@@ -3,16 +3,11 @@ defmodule Adventofcode2017 do
   Documentation for Adventofcode2017.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Adventofcode2017.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def indexed_list(list) do
+    list
+    |> Stream.with_index
+    |> Stream.map(fn {x,y} -> {y,x} end)
+    |> Enum.into(%{})
   end
+
 end
